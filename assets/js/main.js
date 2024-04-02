@@ -1,3 +1,4 @@
+// funcion asincrona que recibe datos de una URL
 const recibirDatos = async () => {
 
     const url = "https://jsonplaceholder.typicode.com/photos";
@@ -19,17 +20,19 @@ const recibirDatos = async () => {
     }
 }
 
+// funcion asincrona que muestra los datos recibidos
 const mostrarDatos = async () => {
     
     const albumes = await recibirDatos();
 
+    // mostrar los primeros 20 albumes
     albumes.slice(0,20).forEach((album) => {
         console.log(album.title);
     })
 
 }
 
-
+// funcion que genera un mensaje de exito despues de 3 segundos
 const generarMensajeExito = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -38,6 +41,7 @@ const generarMensajeExito = () => {
     });
 }
 
+// funcion asincrona que ejecuta las funciones anteriores
 const mostrarNombreAlbumes = async () => {
 
     mostrarDatos();
@@ -45,4 +49,5 @@ const mostrarNombreAlbumes = async () => {
     console.log(mensaje);
 }
 
+// ejecutar la funcion principal
 mostrarNombreAlbumes();
